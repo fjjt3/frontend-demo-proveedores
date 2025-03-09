@@ -1,0 +1,9 @@
+<h2>Lista de Proveedores</h2>
+    <label for="clientId">ID Cliente (opcional):</label>
+    <input type="number" id="clientId" [(ngModel)]="clientId">
+    <button (click)="cargarProveedores()">Buscar Proveedores</button>
+    <ul>
+      <li *ngFor="let proveedor of proveedores">
+        {{ proveedor.nombre }} (ID: {{ proveedor.id }}), Fecha Alta: {{ proveedor.fechaAlta }}, Client ID: {{ proveedor.clientId }}
+      </li>
+    </ul>
