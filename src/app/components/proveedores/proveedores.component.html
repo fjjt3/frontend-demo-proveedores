@@ -1,12 +1,14 @@
 <div class="container mt-4">
   <h2>Lista de Proveedores</h2>
-  <div class="mb-3">
-    <label for="clientId" class="form-label">ID Cliente (opcional):</label>
-    <div class="input-group">
-      <input type="number" id="clientId" class="form-control" [(ngModel)]="clientId">
-      <button class="btn btn-primary" (click)="cargarProveedores()">Buscar Proveedores</button>
+  <form (ngSubmit)="cargarProveedores()">
+    <div class="mb-3">
+      <label for="clientId" class="form-label">ID Cliente (opcional):</label>
+      <div class="input-group">
+        <input type="number" id="clientId" name="clientId" class="form-control" [(ngModel)]="clientId">
+        <button type="submit" class="btn btn-primary">Buscar Proveedores</button>
+      </div>
     </div>
-  </div>
+  </form>
   <div *ngIf="proveedores.length === 0 && clientId !== null" class="alert alert-warning">
     No se encontraron proveedores para el ID de cliente especificado.
   </div>

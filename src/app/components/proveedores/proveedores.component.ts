@@ -21,7 +21,7 @@ export class ProveedoresComponent implements OnInit {
 
   cargarProveedores(): void {
     if (this.clientId !== null) { // Verifica si clientId no es null
-      const idCliente: number = this.clientId; // Obtiene el valor de clientId como número
+      const idCliente: number = +this.clientId; // Convierte clientId a número usando el operador +
       this.proveedorService.getProveedoresPorCliente(idCliente).subscribe(proveedores => {
         this.proveedores = proveedores;
       });
