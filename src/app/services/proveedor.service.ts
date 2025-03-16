@@ -18,6 +18,6 @@ export class ProveedorService {
   }
 
   getProveedoresPorCliente(clientId: number): Observable<Proveedor[]> {
-    return this.http.get<Proveedor[]>(`${this.baseUrl}/${clientId}`);
+    return this.http.get<Proveedor[]>(`${this.baseUrl}/cliente/${clientId}`); // URL corregida
   }
 }

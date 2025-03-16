@@ -16,12 +16,13 @@ export class ProveedoresComponent implements OnInit {
   constructor(private proveedorService: ProveedorService) { }
 
   ngOnInit(): void {
-    this.cargarProveedores();
+    // No cargar proveedores al inicio automáticamente
   }
 
   cargarProveedores(): void {
-    if (this.clientId) {
-      this.proveedorService.getProveedoresPorCliente(this.clientId).subscribe(proveedores => {
+    if (this.clientId !== null) { // Verifica si clientId no es null
+      const idCliente: number = this.clientId; // Obtiene el valor de clientId como número
+      this.proveedorService.getProveedoresPorCliente(idCliente).subscribe(proveedores => {
         this.proveedores = proveedores;
       });
     } else {
